@@ -6,12 +6,12 @@
 curl -d '{
     "op_type":"OP_CREATE_USER",
     "user_privilege" : {
-        "username" : "******",
-        "password" : "******",
+        "username" : "root",
+        "password" : "root",
         "namespace_name" : "TEST",
         "privilege_database" : [{
-                                    "database" : "DB",
-                                    "database_rw" : 1                            
+                                    "database" : "TestDB",
+                                    "database_rw" : "WRITE"                            
                                 }],
         "bns":["preonline", "offline"],
         "ip":["127.0.0.1", "127.0.0.2"]
