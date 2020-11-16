@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Compose Preview
 
 on:
   workflow_dispatch:
@@ -24,7 +24,7 @@ jobs:
     - name: Copy Artifacts
       run: mkdir -p ./output/ && cp ./bazel-bin/baikaldb ./output/ && cp ./bazel-bin/baikalMeta ./output/ && cp ./bazel-bin/baikalStore ./output/ 
     - name: Build the Docker image
-      run: docker build . -f Dockerfile.github-action --tag docker.pkg.github.com/baidu/baikaldb/preview:$GITHUB_SHA
+      run: docker build . -f insider-preview/Dockerfile.preview --tag docker.pkg.github.com/baidu/baikaldb/preview:$GITHUB_SHA
     - name: Push to GitHub Packages
       uses: docker/build-push-action@v1
       with:
@@ -32,6 +32,6 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
         registry: docker.pkg.github.com
         repository: baidu/baikaldb/preview
-        dockerfile: ./Dockerfile.github-action
+        dockerfile: ./insider-preview/Dockerfile.preview
         tag_with_ref: true
     
