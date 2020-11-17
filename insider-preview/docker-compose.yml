@@ -1,19 +1,19 @@
 version: "3.8"
 services:
   meta:
-    image: docker.pkg.github.com/baidu/baikaldb/preview:latest
+    image: ghcr.io/baidu/baikaldb-preview:latest
     command: meta
     ports:
       - "8010:8010"
   store:
-    image: docker.pkg.github.com/baidu/baikaldb/preview:latest
+    image: ghcr.io/baidu/baikaldb-preview:latest
     command: store
     ports:
       - "8110:8110"
     depends_on: 
       - meta
   db: 
-    image: docker.pkg.github.com/baidu/baikaldb/preview:latest
+    image: ghcr.io/baidu/baikaldb-preview:latest
     command: db
     depends_on: 
       - meta
