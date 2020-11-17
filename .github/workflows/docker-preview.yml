@@ -42,5 +42,3 @@ jobs:
         push: true
         tags: |
             ghcr.io/${{ github.repository_owner }}/baikaldb-preview:latest
-        secrets: |
-            GIT_AUTH_TOKEN=${{ secrets.CR_PAT }}
